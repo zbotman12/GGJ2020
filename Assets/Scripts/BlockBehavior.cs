@@ -5,7 +5,8 @@ using UnityEngine;
 public class BlockBehavior : MonoBehaviour
 {
     public static Camera gameCamera;
-    private int currHealth, startHealth, maxHealth;
+    private int currHealth;
+    public int startHealth, maxHealth;
 
     BlockBehavior()
     {
