@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GrabBall : MonoBehaviour
 {
+    public string buttonName = "Interact";
     public GameObject playerHandLocation;
     public SphereCollider triggerZone;
     private Ball ball;
@@ -21,9 +22,9 @@ public class GrabBall : MonoBehaviour
         if (ball != null)
         {
             ball.transform.position = playerHandLocation.transform.position;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButton(buttonName))
             {                
-                ball.Throw(8, Vector3.left);
+                ball.Throw(8, playerHandLocation.transform.forward);
                 ball.gameObject.GetComponent<SphereCollider>().enabled = true;
                 ball = null;
                 StartCoroutine(CoolDown());
