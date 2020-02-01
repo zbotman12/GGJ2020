@@ -9,6 +9,8 @@ public class BasicMovement : MonoBehaviour
     public bool playerLeft;
     public string HorizontialAxis, VerticalAxis;
 
+    Vector3 velocity;
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis(HorizontialAxis);
@@ -16,6 +18,7 @@ public class BasicMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
+        transform.forward = Vector3.SmoothDamp(transform.forward, movement, ref velocity, 0.3f);
         rb.AddForce(movement * speed * Time.deltaTime * 60);
 
         if (playerLeft && transform.position.x >= 0)
