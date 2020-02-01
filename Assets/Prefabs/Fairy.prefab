@@ -89,7 +89,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370357015783031189}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -131,7 +131,9 @@ MonoBehaviour:
   range: 10
   navAgent: {fileID: 7189968070294897515}
   captured: 0
-  material: {fileID: 2100000, guid: af8a39c82f805b347829fb3b0041cc5b, type: 2}
+  leftSide: 0
+  trail: {fileID: 3803735923410794744}
+  currBlock: {fileID: 0}
 --- !u!1 &7327206179660335680
 GameObject:
   m_ObjectHideFlags: 0

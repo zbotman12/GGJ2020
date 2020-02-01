@@ -68,4 +68,9 @@ public class Ball : MonoBehaviour
         if (coll.tag == "Pee")
             Destroy(coll.gameObject);
     }
+    public IEnumerator TurnOnCollider()
+    {
+        yield return new WaitForSeconds(.2f);
+        gameObject.GetComponent<SphereCollider>().enabled = true;
+    }
 }

@@ -11,11 +11,15 @@ public class GrabBall : MonoBehaviour
     public SphereCollider triggerZone;
     [SerializeField]
     private Ball ball;
-
-    bool enableBallThrow = false, usedTrigger = false, shootable = true;
+    public bool usedTrigger = false;
+    bool enableBallThrow = false, shootable = true;
     public void OnTriggerStay(Collider coll)
     {
-        usedTrigger = Input.GetAxis(buttonName) > 0;
+        if (Input.GetAxis(buttonName) > 0 && !enableBallThrow)
+        {
+            print("Stop");
+            usedTrigger = true;
+        }
         if (coll.gameObject.tag == "Ball" && (Input.GetAxis(buttonName) > 0 || Input.GetButtonDown(buttonNameAlt)) && ball == null)
         {
             ball = coll.gameObject.GetComponent<Ball>();
@@ -24,7 +28,7 @@ public class GrabBall : MonoBehaviour
         }
     }
 
-    public void LateUpdate()
+    public void Update()
     {
         if (ball != null)
         {
@@ -36,10 +40,9 @@ public class GrabBall : MonoBehaviour
             {
                 enableBallThrow = true;
             }
-
             // Ball in hand
             ball.transform.position = playerHandLocation.transform.position;
-            if ((Input.GetAxis(buttonName) > 0 || Input.GetButtonDown(buttonNameAlt)) && enableBallThrow)
+            if (Input.GetAxis(buttonName) > 0 && enableBallThrow || Input.GetButton(buttonNameAlt) && enableBallThrow)
             {
                 triggerZone.enabled = false;
                 ball.Throw(8, playerHandLocation.transform.forward);
@@ -65,7 +68,7 @@ public class GrabBall : MonoBehaviour
 
     IEnumerator CoolDown()
     {        
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         triggerZone.enabled = true;
     }
     IEnumerator PeeShooterCooldown()

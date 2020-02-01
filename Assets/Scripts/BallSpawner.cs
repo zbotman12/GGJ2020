@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject ballPrefab;
+    [SerializeField] public GameObject ballPrefab;
     public void SpawnBall(float delay)
     {
         StartCoroutine(spawnBall(delay));

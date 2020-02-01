@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField] Vector3 MaxSize;
+    [SerializeField] public Vector3 MaxSize;
     [SerializeField] float explodeDamage = 10;
     [SerializeField] float stunDuration = 2;
 
