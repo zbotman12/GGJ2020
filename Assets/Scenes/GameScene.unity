@@ -4028,7 +4028,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 906599575115001327}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &2111072130
@@ -4255,6 +4255,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 28.809685, y: 9.424996, z: 2.177819}
   m_Center: {x: 0, y: 4.11, z: 0}
+--- !u!1 &906599575115001327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 906599575115001327, guid: 6f1a37687650c014387ff713ed8798c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 906599575399175148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &906599575399175148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4432,6 +4438,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 906599574917719250, guid: 6f1a37687650c014387ff713ed8798c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2111072129}
+    - target: {fileID: 5462697888907940180, guid: 6f1a37687650c014387ff713ed8798c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2111072129}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1a37687650c014387ff713ed8798c4, type: 3}
 --- !u!1001 &8477824402102061004
