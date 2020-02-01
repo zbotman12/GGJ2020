@@ -11,17 +11,17 @@ public class GrabBall : MonoBehaviour
     public SphereCollider triggerZone;
     [SerializeField]
     private Ball ball;
-    public bool usedTrigger = false;
+    public bool usedTrigger = false, canPickUp = true;
     bool enableBallThrow = false, shootable = true;
     public void OnTriggerStay(Collider coll)
     {
-        if (Input.GetAxis(buttonName) > 0 && !enableBallThrow)
+        if (Input.GetAxis(buttonName) > 0)
         {
-            print("Stop");
             usedTrigger = true;
         }
-        if (coll.gameObject.tag == "Ball" && (Input.GetAxis(buttonName) > 0 || Input.GetButtonDown(buttonNameAlt)) && ball == null)
+        if (coll.gameObject.tag == "Ball" && (Input.GetAxis(buttonName) > 0 || Input.GetButtonDown(buttonNameAlt)) && ball == null && canPickUp)
         {
+            canPickUp = false;
             ball = coll.gameObject.GetComponent<Ball>();
             ball.gameObject.GetComponent<SphereCollider>().enabled = false;
             enableBallThrow = false;
@@ -70,6 +70,7 @@ public class GrabBall : MonoBehaviour
     {        
         yield return new WaitForSeconds(1f);
         triggerZone.enabled = true;
+        canPickUp = true;
     }
     IEnumerator PeeShooterCooldown()
     {
