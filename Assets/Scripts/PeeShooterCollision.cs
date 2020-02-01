@@ -11,7 +11,7 @@ public class PeeShooterCollision : MonoBehaviour
     }
     IEnumerator CollisionDelay()
     {
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.35f);
         sc.enabled = true;
     }
     private void OnCollisionEnter(Collision coll)
@@ -27,9 +27,5 @@ public class PeeShooterCollision : MonoBehaviour
                 break;            
         }
         Destroy(gameObject);
-    }
-    public void OnTriggerEnter(Collider coll)
-    {
-        print(coll.name);
     }
 }

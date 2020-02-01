@@ -62,5 +62,10 @@ public class Ball : MonoBehaviour
     public void Throw(float speed, Vector3 direction)
     {     
         rb.velocity = speed * direction.normalized;
-    }    
+    }
+    public void OnTriggerEnter(Collider coll)
+    {
+        if (coll.tag == "Pee")
+            Destroy(coll.gameObject);
+    }
 }
