@@ -23,10 +23,12 @@ public class BasicMovement : MonoBehaviour
         float lookHorizontal = Input.GetAxis(HorizontialAxisLook);
         float lookVertical = Input.GetAxis(VerticalAxisLook);
 
-        Vector3 look = new Vector3(lookHorizontal, 0.0f, lookVertical);
 
-        transform.forward = look;
-        //transform.forward = Vector3.SmoothDamp(transform.forward, look, ref velocity, 0.8f);
+        Vector3 look = new Vector3(lookHorizontal, 0.0f, lookVertical);
+        if (look.magnitude > 0)
+        {
+            transform.forward = Vector3.SmoothDamp(transform.forward, look, ref velocity, 0.1f);
+        }
 
         rb.AddForce(movement * speed * Time.deltaTime * 60);
 
