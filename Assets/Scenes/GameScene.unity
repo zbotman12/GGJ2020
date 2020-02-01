@@ -898,6 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a033f2f0e629444418c6433f222e75a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonNameAlt: InteractButton2
   buttonName: Interact2
   playerHandLocation: {fileID: 4069087}
   triggerZone: {fileID: 337464160}
@@ -1435,6 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a033f2f0e629444418c6433f222e75a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonNameAlt: InteractButton
   buttonName: Interact
   playerHandLocation: {fileID: 1841924807}
   triggerZone: {fileID: 612957129}
