@@ -8,15 +8,15 @@ public class BlockGeneratorScript : MonoBehaviour
 {
     public float xGridSize, yGridSize;
     public float xSpacing, ySpacing;
+    public GameObject playerLeftPos, playerRightPos;
 
     public void GenerateBlocks()
     {
-        List<GameObject> blocks = new List<GameObject>();
-
-        GameObject parentHolder = new GameObject();
-        parentHolder.name = "Blocks";
-        parentHolder.transform.position = Vector3.zero;
-
+        GenerateTheBlocks(true, playerLeftPos);
+        GenerateTheBlocks(false, playerRightPos);
+    }
+    public void GenerateTheBlocks(bool leftSide, GameObject parentHolder)
+    {
         for (int i = 0; i < xGridSize; i++)
         {
             for (int j = 0; j < yGridSize; j++)
