@@ -7,8 +7,8 @@ public class Fairy : MonoBehaviour
 {
     public float range = 10.0f;
     public NavMeshAgent navAgent;
-    public bool captured = false;
-    public Material material;
+    public bool captured = false, leftSide = false;
+    public ParticleSystem trail;
 
     public void Start()
     {
@@ -52,10 +52,21 @@ public class Fairy : MonoBehaviour
         if (!captured && coll.tag == "Player")
         {
             GameObject player = coll.gameObject;
-            material.color = player.GetComponent<Material>().color;
+            gameObject.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
+            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
             captured = true;
-
-            navAgent.destination = new Vector3((player.name == "Player1")? - 7: 7, 1, 0);
+            leftSide = player.name == "Player2";
+            BlockBehavior temp = GameManager.instance.FindWeakestWall(leftSide);
+            if (temp.currHealth <= 0 || temp.currHealth >= 100)
+            {
+                navAgent.destination = new Vector3(leftSide ? -7 : 7, 1, 0);
+            }
+            else
+            {
+                Vector3 tempPos = temp.transform.position;
+                tempPos.y = 1;
+                navAgent.destination = tempPos;
+            }
         }
     }
 }

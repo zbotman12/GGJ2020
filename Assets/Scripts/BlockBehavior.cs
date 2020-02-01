@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour
-{
-    [SerializeField]
-    private float currHealth;
+{    
+    public float currHealth;
     public int startHealth, maxHealth;
 
     BlockBehavior()
@@ -13,7 +12,7 @@ public class BlockBehavior : MonoBehaviour
         currHealth = startHealth = maxHealth = 100;
     }
 
-    BlockBehavior(int all)
+    public BlockBehavior(int all)
     {
         currHealth = startHealth = maxHealth = all;
     }
@@ -44,7 +43,9 @@ public class BlockBehavior : MonoBehaviour
         }
         else if (currHealth <= 0)
         {
-            Destroy(gameObject);            
+            // This will break the GameManager with a nullrefexecption
+            //Destroy(gameObject);            
+            gameObject.SetActive(false);
         }
     }
 
