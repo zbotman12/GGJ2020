@@ -4088,7 +4088,7 @@ GameObject:
   - component: {fileID: 1876584343979683062}
   - component: {fileID: 7189968070320128444}
   - component: {fileID: 4562123661538186566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fairy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8767,6 +8767,7 @@ MonoBehaviour:
   captured: 0
   leftSide: 0
   trail: {fileID: 3803735923436026415}
+  currBlock: {fileID: 0}
 --- !u!199 &5140647002568076540
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -8862,7 +8863,7 @@ GameObject:
   - component: {fileID: 2451771595492979681}
   - component: {fileID: 3803735923436026415}
   - component: {fileID: 5140647002568076540}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8880,6 +8881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237655215407290345, guid: 88845af142a3e3a4bbbe229442074ee2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3237655215407451081, guid: 88845af142a3e3a4bbbe229442074ee2,
         type: 3}
@@ -8935,6 +8941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237655215407290346, guid: 88845af142a3e3a4bbbe229442074ee2,
+        type: 3}
+      propertyPath: collisionLayer.m_Bits
+      value: 12804
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88845af142a3e3a4bbbe229442074ee2, type: 3}

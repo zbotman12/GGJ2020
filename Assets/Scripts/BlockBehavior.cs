@@ -56,7 +56,6 @@ public class BlockBehavior : MonoBehaviour
     }
     public void damage(float mod)
     {
-        Debug.Log("DamageHappened");
         CameraShake.instance.ShakeCamera();
         addHealth(-1 * mod);
     }

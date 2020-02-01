@@ -10,6 +10,8 @@ public class Fairy : MonoBehaviour
     public bool captured = false, leftSide = false;
     public ParticleSystem trail;
 
+    public BlockBehavior currBlock;
+
     public void Start()
     {
         navAgent.destination = new Vector3(0, 1, 0);
@@ -33,17 +35,30 @@ public class Fairy : MonoBehaviour
 
     void Update()
     {
-        /*
-        Vector3 point;        
-        if (RandomPoint(transform.position, range, out point))
+        if (currBlock != null && currBlock.currHealth > 0)
         {
-            Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+            if (Vector3.Distance(transform.position, currBlock.transform.position) < 2)
+            {
+                currBlock.currHealth += 0.1f;
+            }
         }
-        */
+        else if (currBlock != null && currBlock.currHealth <= 0)
+            currBlock = null;
+    }
 
-        if (Vector3.Distance(navAgent.destination, transform.position) > 1.0f)
+    public void CheckForNewBlocks()
+    {
+        BlockBehavior temp = GameManager.instance.FindWeakestWall(leftSide);
+        if (temp.currHealth <= 0 || temp.currHealth >= 100)
         {
-            // Chill here
+            navAgent.destination = new Vector3(leftSide ? -7 : 7, 1, 0);
+        }
+        else
+        {
+            currBlock = temp;
+            Vector3 tempPos = currBlock.transform.position;
+            tempPos.y = 1;
+            navAgent.destination = tempPos;
         }
     }
 
@@ -56,17 +71,7 @@ public class Fairy : MonoBehaviour
             trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
             captured = true;
             leftSide = player.name == "Player2";
-            BlockBehavior temp = GameManager.instance.FindWeakestWall(leftSide);
-            if (temp.currHealth <= 0 || temp.currHealth >= 100)
-            {
-                navAgent.destination = new Vector3(leftSide ? -7 : 7, 1, 0);
-            }
-            else
-            {
-                Vector3 tempPos = temp.transform.position;
-                tempPos.y = 1;
-                navAgent.destination = tempPos;
-            }
+            InvokeRepeating("CheckForNewBlocks", .1f, .5f);
         }
     }
 }
