@@ -40,4 +40,16 @@ public class BasicMovement : MonoBehaviour
             transform.position = pos;
         }
     }
+
+    public void Stun(float duration)
+    {
+        StartCoroutine(stunTimer(duration));
+    }
+
+    IEnumerator stunTimer(float duration)
+    {
+        enabled = false;
+        yield return new WaitForSeconds(duration);
+        enabled = true;
+    }
 }

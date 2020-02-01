@@ -7,7 +7,8 @@ public class Ball : MonoBehaviour
     public Rigidbody rb;
     public LayerMask collisionLayer;
     public float scale, growRate = .0005f;
-
+    public float maxScale;
+    public GameObject ExplosionPrefab;
     public void Start()
     {
         collisionLayer = ~collisionLayer;
@@ -23,6 +24,11 @@ public class Ball : MonoBehaviour
 
         transform.localScale += new Vector3(growRate, growRate, growRate);
         scale = transform.localScale.x;
+        if(scale >= maxScale)
+        {
+            Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
     // Since the raycast wont run on angled hits
     public void OnCollisionEnter(Collision coll)
