@@ -7,8 +7,10 @@ public class Fairy : MonoBehaviour
 {
     public float range = 10.0f;
     public NavMeshAgent navAgent;
-    public bool captured = false;
-    public Material material;
+    public bool captured = false, leftSide = false;
+    public ParticleSystem trail;
+
+    public BlockBehavior currBlock;
 
     public void Start()
     {
@@ -33,17 +35,30 @@ public class Fairy : MonoBehaviour
 
     void Update()
     {
-        /*
-        Vector3 point;        
-        if (RandomPoint(transform.position, range, out point))
+        if (currBlock != null && currBlock.currHealth > 0)
         {
-            Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+            if (Vector3.Distance(transform.position, currBlock.transform.position) < 2)
+            {
+                currBlock.currHealth += 0.1f;
+            }
         }
-        */
+        else if (currBlock != null && currBlock.currHealth <= 0)
+            currBlock = null;
+    }
 
-        if (Vector3.Distance(navAgent.destination, transform.position) > 1.0f)
+    public void CheckForNewBlocks()
+    {
+        BlockBehavior temp = GameManager.instance.FindWeakestWall(leftSide);
+        if (temp.currHealth <= 0 || temp.currHealth >= 100)
         {
-            // Chill here
+            navAgent.destination = new Vector3(leftSide ? -7 : 7, 1, 0);
+        }
+        else
+        {
+            currBlock = temp;
+            Vector3 tempPos = currBlock.transform.position;
+            tempPos.y = 1;
+            navAgent.destination = tempPos;
         }
     }
 
@@ -52,10 +67,11 @@ public class Fairy : MonoBehaviour
         if (!captured && coll.tag == "Player")
         {
             GameObject player = coll.gameObject;
-            material.color = player.GetComponent<Material>().color;
+            gameObject.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
+            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
             captured = true;
-
-            navAgent.destination = new Vector3((player.name == "Player1")? - 7: 7, 1, 0);
+            leftSide = player.name == "Player2";
+            InvokeRepeating("CheckForNewBlocks", .1f, .5f);
         }
     }
 }
