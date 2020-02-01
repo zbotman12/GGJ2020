@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake instance;
-    public float shakeTimeAmt = 0.3f, shakeAmt = 1.1f;
+    [SerializeField]
+    private float shakeTimeAmt = 0.5f, shakeAmt = 0.2f;
     public bool debugMode = false;
     private float timer; 
     private Vector3 originalPos;
