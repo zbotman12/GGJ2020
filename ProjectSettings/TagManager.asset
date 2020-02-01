@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Ball
+  - Pee
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Blocks
   - Fairy
   - Ball
-  - 
+  - PeeShooter
   - 
   - 
   - 

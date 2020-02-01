@@ -7,7 +7,9 @@ public class GrabBall : MonoBehaviour
     public string buttonNameAlt = "InteractButton";
     public string buttonName = "Interact";
     public GameObject playerHandLocation;
+    public GameObject peeShooterPrefab;
     public SphereCollider triggerZone;
+    [SerializeField]
     private Ball ball;
 
     bool enableBallThrow = false;
@@ -36,13 +38,25 @@ public class GrabBall : MonoBehaviour
                 enableBallThrow = true;
             }
 
+            // Ball in hand
             ball.transform.position = playerHandLocation.transform.position;
             if ((Input.GetAxis(buttonName) > 0 || Input.GetButtonDown(buttonNameAlt)) && enableBallThrow)
-            {                
+            {
                 ball.Throw(8, playerHandLocation.transform.forward);
                 ball.gameObject.GetComponent<SphereCollider>().enabled = true;
                 ball = null;
                 StartCoroutine(CoolDown());
+            }
+        }
+        else
+        {
+            // No Ball in hand
+            if ((Input.GetAxis(buttonName) > 0 || Input.GetButtonDown(buttonNameAlt)))
+            {
+                Vector3 spawnPosition = transform.position;
+                spawnPosition.y = 1;
+                GameObject pee = Instantiate(peeShooterPrefab, spawnPosition, Quaternion.identity);                
+                pee.GetComponent<Rigidbody>().velocity = playerHandLocation.transform.forward * 8;
             }
         }
     }

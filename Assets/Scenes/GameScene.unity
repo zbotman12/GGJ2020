@@ -949,7 +949,10 @@ MonoBehaviour:
   buttonNameAlt: InteractButton2
   buttonName: Interact2
   playerHandLocation: {fileID: 4069087}
+  peeShooterPrefab: {fileID: 7759890900373496186, guid: 0d1f4fdecee0e0c4e9d2fbce4f742422,
+    type: 3}
   triggerZone: {fileID: 337464160}
+  ball: {fileID: 0}
 --- !u!135 &337464160
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1511,7 +1514,10 @@ MonoBehaviour:
   buttonNameAlt: InteractButton
   buttonName: Interact
   playerHandLocation: {fileID: 1841924807}
+  peeShooterPrefab: {fileID: 7759890900373496186, guid: 0d1f4fdecee0e0c4e9d2fbce4f742422,
+    type: 3}
   triggerZone: {fileID: 612957129}
+  ball: {fileID: 0}
 --- !u!1001 &709628484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8882,11 +8888,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 3237655215407290345, guid: 88845af142a3e3a4bbbe229442074ee2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 3237655215407451081, guid: 88845af142a3e3a4bbbe229442074ee2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8942,10 +8943,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3237655215407290346, guid: 88845af142a3e3a4bbbe229442074ee2,
+    - target: {fileID: 8378035326439329145, guid: 88845af142a3e3a4bbbe229442074ee2,
         type: 3}
-      propertyPath: collisionLayer.m_Bits
-      value: 12804
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88845af142a3e3a4bbbe229442074ee2, type: 3}
