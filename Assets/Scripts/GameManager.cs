@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void Start()
+    public void StartGame()
     {
         InvokeRepeating("SpawnFairy", 3, 15);
         StartCoroutine(WinChecker());
