@@ -34,7 +34,7 @@ public class GrabBall : MonoBehaviour
     IEnumerator CoolDown()
     {
         triggerZone.enabled = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         triggerZone.enabled = true;
     }
 }
