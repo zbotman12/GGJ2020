@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour
 {
-    public static Camera gameCamera;
-    private int currHealth;
+    [SerializeField]
+    private float currHealth;
     public int startHealth, maxHealth;
 
     BlockBehavior()
@@ -35,21 +35,27 @@ public class BlockBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void addHealth(float mod)
+    {
+        currHealth += mod;
+        if (currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
+        else if (currHealth <= 0)
+        {
+            Destroy(gameObject);            
+        }
+    }
 
     public void damage(int mod)
     {
+        CameraShake.instance.ShakeCamera();
         addHealth(-1 * mod);
     }
-
-    // Start is called before the first frame update
-    void Start()
+    public void damage(float mod)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        CameraShake.instance.ShakeCamera();
+        addHealth(-1 * mod);
     }
 }
