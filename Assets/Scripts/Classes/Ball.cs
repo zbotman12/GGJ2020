@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     public void FixedUpdate()
     {
         Debug.DrawRay(transform.position, rb.velocity, Color.red, Time.deltaTime, false);
-        if (Physics.Raycast(transform.position, rb.velocity, out RaycastHit hit, .35f, walls))
+        if (Physics.Raycast(transform.position, rb.velocity, out RaycastHit hit, .35f, collisionLayer))
         {
             Collision(hit);
         }
