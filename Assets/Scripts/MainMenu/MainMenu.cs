@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    public void Awake()
+    {
+        Time.timeScale = 0;
+    }
     public void StartGame()
     {
         GameManager.instance.StartGame();

@@ -59,7 +59,8 @@ public class GrabBall : MonoBehaviour
                 shootable = false;
                 Vector3 spawnPosition = transform.position;
                 spawnPosition.y = 1;
-                GameObject pee = Instantiate(peeShooterPrefab, spawnPosition, Quaternion.identity);                
+                GameObject pee = Instantiate(peeShooterPrefab, spawnPosition, Quaternion.identity);
+                Destroy(pee, 12);
                 pee.GetComponent<Rigidbody>().velocity = playerHandLocation.transform.forward * 8;
                 StartCoroutine(PeeShooterCooldown());
             }

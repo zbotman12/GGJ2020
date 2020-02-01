@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public bool finished = false;
     public bool leftWinner;
 
+    public bool TestingMode;
+
     [Tooltip("The players walls list that will store all of the data for the walls")]
     public List<BlockBehavior> leftWalls = new List<BlockBehavior>(), rightWalls = new List<BlockBehavior>();
 
@@ -30,7 +32,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         InvokeRepeating("SpawnFairy", 3, 15);
-        StartCoroutine(WinChecker());
+        StartCoroutine(WinChecker());           
+        Time.timeScale = 1;
     }
 
     public IEnumerator WinChecker()
