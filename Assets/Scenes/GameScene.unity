@@ -961,6 +961,8 @@ MonoBehaviour:
   playerLeft: 1
   HorizontialAxis: Horizontal2
   VerticalAxis: Vertical2
+  HorizontialAxisLook: HorizontalStick2Player2
+  VerticalAxisLook: VerticalStick2Player2
 --- !u!1001 &376044539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1376,6 +1378,8 @@ MonoBehaviour:
   playerLeft: 0
   HorizontialAxis: Horizontal
   VerticalAxis: Vertical
+  HorizontialAxisLook: HorizontalStick2
+  VerticalAxisLook: VerticalStick2
 --- !u!54 &612957127
 Rigidbody:
   m_ObjectHideFlags: 0

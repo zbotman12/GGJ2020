@@ -8,6 +8,8 @@ public class BasicMovement : MonoBehaviour
     public Rigidbody rb;
     public bool playerLeft;
     public string HorizontialAxis, VerticalAxis;
+    public string HorizontialAxisLook, VerticalAxisLook;
+
 
     Vector3 velocity;
 
@@ -18,7 +20,14 @@ public class BasicMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        transform.forward = Vector3.SmoothDamp(transform.forward, movement, ref velocity, 0.3f);
+        float lookHorizontal = Input.GetAxis(HorizontialAxisLook);
+        float lookVertical = Input.GetAxis(VerticalAxisLook);
+
+        Vector3 look = new Vector3(lookHorizontal, 0.0f, lookVertical);
+
+        transform.forward = look;
+        //transform.forward = Vector3.SmoothDamp(transform.forward, look, ref velocity, 0.8f);
+
         rb.AddForce(movement * speed * Time.deltaTime * 60);
 
         if (playerLeft && transform.position.x >= 0)

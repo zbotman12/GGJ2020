@@ -22,7 +22,7 @@ public class GrabBall : MonoBehaviour
         if (ball != null)
         {
             ball.transform.position = playerHandLocation.transform.position;
-            if (Input.GetButton(buttonName))
+            if (Input.GetAxis(buttonName) > 0)
             {                
                 ball.Throw(8, playerHandLocation.transform.forward);
                 ball.gameObject.GetComponent<SphereCollider>().enabled = true;
