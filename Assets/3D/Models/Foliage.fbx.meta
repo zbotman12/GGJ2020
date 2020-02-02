@@ -8,8 +8,13 @@ ModelImporter:
     2100000: Foliage
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Foliage
-  externalObjects: {}
+    4300000: Foliage (2)
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Foliage
+    second: {fileID: 2100000, guid: 2b1de6a4aca96b24bbb69953015db292, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

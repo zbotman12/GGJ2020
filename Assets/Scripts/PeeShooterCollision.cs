@@ -20,10 +20,10 @@ public class PeeShooterCollision : MonoBehaviour
         {
             case "Player":
                 // Maybe do a stun or somthing?
-                coll.gameObject.GetComponent<BasicMovement>().Stun(0.2f);                
+                coll.gameObject.GetComponent<BasicMovement>().Stun(0.5f);                
                 break;
             case "Wall":
-                coll.gameObject.GetComponent<BlockBehavior>().damage(20);                
+                coll.gameObject.GetComponent<BlockBehavior>().damage(10);                
                 break;            
         }
         Destroy(gameObject);

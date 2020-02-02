@@ -12,7 +12,7 @@ public class BlockBehavior : MonoBehaviour
 
     public void Start()
     {
-        mesh = GetComponent<MeshFilter>();
+        mesh = GetComponent<MeshFilter>();        
     }
 
     BlockBehavior()

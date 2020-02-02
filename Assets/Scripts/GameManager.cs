@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         leftWalls = new List<BlockBehavior>(blockGenerator.leftWalls);
         rightWalls = new List<BlockBehavior>(blockGenerator.rightWalls);
         yield return new WaitForSeconds(3);
+
         while (!finished)
         {
             for (int i = leftWalls.Count - 1; i >= 0; i--)
@@ -78,7 +80,17 @@ public class GameManager : MonoBehaviour
         // Game Over
         leftWinner = leftWalls.Count == 0;
         CameraShake.instance.StopScreenShake();
+        foreach (BasicMovement bm in FindObjectsOfType<BasicMovement>())
+        {
+            bm.enabled = false;
+        }
+
+        foreach (GrabBall bm in FindObjectsOfType<GrabBall>())
+        {
+            bm.enabled = false;
+        }
         endScreen.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(endScreen.GetComponentInChildren<UnityEngine.UI.Button>().gameObject);
     }
 
     public void SpawnFairy()

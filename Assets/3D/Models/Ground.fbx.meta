@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48f24ecf8d8f2f4448c48bbb08d8ed40
+guid: aa0e2a4114f6a1a4684c7fb27fb4277c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Ground
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ground
+    second: {fileID: 2100000, guid: 797ac9f0657335c4a9a86c82643367fe, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
