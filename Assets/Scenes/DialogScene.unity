@@ -699,21 +699,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &786169045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +858,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1799925815508683701, guid: 6032f3cba69dcb04ca8df838aa225a26,
+        type: 3}
+      propertyPath: m_Name
+      value: CharacterStage
+      objectReference: {fileID: 0}
     - target: {fileID: 1799925815508683700, guid: 6032f3cba69dcb04ca8df838aa225a26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,11 +917,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799925815508683701, guid: 6032f3cba69dcb04ca8df838aa225a26,
-        type: 3}
-      propertyPath: m_Name
-      value: CharacterStage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6032f3cba69dcb04ca8df838aa225a26, type: 3}
@@ -1995,18 +2007,28 @@ MonoBehaviour:
   _onRaisedZero:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls:
@@ -2021,6 +2043,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1842312789981024063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2037,12 +2061,18 @@ MonoBehaviour:
   _onRaisedZero:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls:
@@ -2057,12 +2087,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1842312790182546924
 Transform:
   m_ObjectHideFlags: 0
@@ -2143,18 +2179,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls:
@@ -2169,6 +2215,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1842312790182546931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,21 +2244,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1842312790374645612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2404,6 +2464,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Doug
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2607,6 +2669,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls:
@@ -2621,18 +2685,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!222 &1842312790594186641
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2659,6 +2733,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: be41ee1f6a3fb4c699dde718774749f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2749,6 +2825,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: eca361205b91bad4eacaf53c095cd61c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -2819,6 +2897,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1842312790855472088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2903,6 +2983,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: What does this text say doug?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3057,6 +3139,8 @@ MonoBehaviour:
   _onRaisedZero:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls:
@@ -3071,18 +3155,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &2075464088680348871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3110,6 +3204,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogChoiceFinishedListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &2075464089496427780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3137,6 +3233,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogChoiceStartedListener+ChoiceDataEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   dialogChoicePrefab: {fileID: 474, guid: 6635478f34d3f534cacdbc82ab498fb2, type: 3}
   AutoSelectSingleChoices: 1
 --- !u!114 &2075464090177767682
@@ -3156,9 +3254,13 @@ MonoBehaviour:
   printCompleted:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   characterPrinted:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: RedBlueGames.Tools.TextTyper.TextTyper+CharacterPrintedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!223 &4312993904230248299
 Canvas:
   m_ObjectHideFlags: 0
@@ -3436,6 +3538,8 @@ MonoBehaviour:
   _onRaisedZero:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedOne:
     m_PersistentCalls:
       m_Calls:
@@ -3450,15 +3554,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: DialogEventListener+OneArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedTwo:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+TwoArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedThree:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+ThreeArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedFour:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+FourArgEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _onRaisedVariable:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: DialogEventListener+StringArgsEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
