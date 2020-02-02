@@ -33,7 +33,7 @@ public class BlockGeneratorScript : MonoBehaviour
             for (int j = 0; j < yGridSize; j++)
             {
                 GameObject block = Instantiate(blockPrefab, parentHolder.transform);
-                block.transform.position = new Vector3(i * xSpacing + (leftSide? playerLeftPos.transform.position.x: playerRightPos.transform.position.x), 1, j * ySpacing + (leftSide ? playerLeftPos.transform.position.x+6 : -playerRightPos.transform.position.x+4));
+                block.transform.position = new Vector3(i * xSpacing + (leftSide? playerLeftPos.transform.position.x: playerRightPos.transform.position.x), 1, j * ySpacing + (leftSide ? playerLeftPos.transform.position.x+7 : -playerRightPos.transform.position.x+5));
                 if (leftSide)
                     leftWalls.Add(block.GetComponent<BlockBehavior>());
                 else
