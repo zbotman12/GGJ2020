@@ -1148,7 +1148,8 @@ MonoBehaviour:
   playerRightPos: {fileID: 864631410}
   leftWalls: []
   rightWalls: []
-  blockPrefab: {fileID: 960631321}
+  blockPrefab: {fileID: 8182608776250111166, guid: ac76fe14b9f6a3d42b82e54e1865cd7e,
+    type: 3}
 --- !u!4 &960631323
 Transform:
   m_ObjectHideFlags: 0
