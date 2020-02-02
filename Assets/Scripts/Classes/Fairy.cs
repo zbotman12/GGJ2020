@@ -9,7 +9,7 @@ public class Fairy : MonoBehaviour
     public NavMeshAgent navAgent;
     public bool captured = false, leftSide = false;
     public ParticleSystem trail;
-
+    public GameObject model;
     public BlockBehavior currBlock;
 
     public void Start()
@@ -67,8 +67,8 @@ public class Fairy : MonoBehaviour
         if (!captured && coll.tag == "Player")
         {
             GameObject player = coll.gameObject;
-            gameObject.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
-            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
+            model.GetComponent<Renderer>().material = player.GetComponent<Player>().playerSkins[0];
+            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerSkins[0];
             captured = true;
             leftSide = player.name == "Player2";
             InvokeRepeating("CheckForNewBlocks", .1f, .5f);
