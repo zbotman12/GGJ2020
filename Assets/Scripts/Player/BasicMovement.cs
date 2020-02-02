@@ -10,7 +10,6 @@ public class BasicMovement : MonoBehaviour
     public string HorizontialAxis, VerticalAxis;
     public string HorizontialAxisLook, VerticalAxisLook;
 
-
     Vector3 velocity;
 
     void FixedUpdate()

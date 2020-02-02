@@ -100,8 +100,6 @@ public class GameManager : MonoBehaviour
 
         if (faries.Count > 0)
             faries.Clear();
-
-        SceneManager.LoadScene(1);
     }
 
     /// <summary>
