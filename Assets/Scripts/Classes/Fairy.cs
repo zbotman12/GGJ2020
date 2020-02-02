@@ -37,7 +37,7 @@ public class Fairy : MonoBehaviour
     {
         if (currBlock != null && currBlock.currHealth > 0)
         {
-            if (Vector3.Distance(transform.position, currBlock.transform.position) < 2)
+            if (Vector3.Distance(transform.position, currBlock.transform.position) < 5)
             {
                 currBlock.addHealth(.2f);
             }
@@ -58,6 +58,7 @@ public class Fairy : MonoBehaviour
             currBlock = temp;
             Vector3 tempPos = currBlock.transform.position;
             tempPos.y = 1;
+            tempPos.x += leftSide ? 3 : -3;
             navAgent.destination = tempPos;
         }
     }

@@ -21,7 +21,7 @@ public class PeeShooterCollision : MonoBehaviour
         {
             case "Player":
                 // Maybe do a stun or somthing?
-                coll.gameObject.GetComponent<BasicMovement>().Stun(0.5f);                
+                //coll.gameObject.GetComponent<BasicMovement>().Stun(0.5f);                
                 break;
             case "Wall":
                 coll.gameObject.GetComponent<BlockBehavior>().damage(4, .1f);

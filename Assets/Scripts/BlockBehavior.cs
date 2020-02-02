@@ -65,7 +65,7 @@ public class BlockBehavior : MonoBehaviour
 
         if (currHealth > 80)
             mesh.mesh = FullHealth;
-        else if (currHealth < 75 && currHealth >= 25)
+        else if (currHealth <= 80 && currHealth >= 25)
             mesh.mesh = Damaged;
         else
             mesh.mesh = Broken;
