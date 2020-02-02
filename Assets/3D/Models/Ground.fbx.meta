@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: aa0e2a4114f6a1a4684c7fb27fb4277c
+guid: 094af616f71ecbb40bd2446a4c797308
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: Ground
+    2100002: Flower_01
+    2100004: Flower_02
+    2100006: Flower_03
     2300000: //RootNode
     3300000: //RootNode
     4300000: Ground
@@ -13,8 +16,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Flower_01
+    second: {fileID: 2100000, guid: 33e7bfdf3735fa841954598b3aa14e7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flower_02
+    second: {fileID: 2100000, guid: 866219eb007a68549b18f0b400d5f801, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flower_03
+    second: {fileID: 2100000, guid: 70ced15f86db1814fa338a298d815fb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ground
-    second: {fileID: 2100000, guid: 797ac9f0657335c4a9a86c82643367fe, type: 2}
+    second: {fileID: 2100000, guid: 3cc0affbf95ab844fb03102a46ac1d08, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
