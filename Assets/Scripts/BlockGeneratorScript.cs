@@ -12,6 +12,7 @@ public class BlockGeneratorScript : MonoBehaviour
     public float xSpacing, ySpacing;
     public GameObject playerLeftPos, playerRightPos, blockPrefab;
     public List<BlockBehavior> leftWalls = new List<BlockBehavior>(), rightWalls = new List<BlockBehavior>();
+    public GameObject blockPrefab;
 
     public void GenerateBlocks()
     {

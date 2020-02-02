@@ -223,7 +223,7 @@ public class DialogDirector : MonoBehaviour
 
         if (selectedDialogBox != null && selectedDialogBox.clickAnywhere && timer <= 0 && canContinue)
         {
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+            if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("InteractButton2") || Input.GetMouseButtonDown(0))
             {
                 timer = nextContinueTime;
                 Continue();
