@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject fairyPrefab;
-    public GameObject fairySpawnPos;
+    public GameObject fairySpawnPos1, fairySpawnPos2;
+    public GameObject endScreen;
+
+    public List<GameObject> faries = new List<GameObject>();
+
+    public BlockGeneratorScript blockGenerator;
 
     public bool finished = false;
     public bool leftWinner;
@@ -31,13 +37,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        InvokeRepeating("SpawnFairy", 3, 15);
-        StartCoroutine(WinChecker());           
+        InvokeRepeating("SpawnFairy", 3, 15);                 
         Time.timeScale = 1;
+        blockGenerator.GenerateBlocks();
+        StartCoroutine(WinChecker());
     }
 
     public IEnumerator WinChecker()
     {
+        yield return new WaitForSeconds(3);
+        leftWalls = new List<BlockBehavior>(blockGenerator.leftWalls);
+        rightWalls = new List<BlockBehavior>(blockGenerator.rightWalls);
+        yield return new WaitForSeconds(3);
         while (!finished)
         {
             for (int i = leftWalls.Count - 1; i >= 0; i--)
@@ -57,12 +68,40 @@ public class GameManager : MonoBehaviour
 
         // Game Over
         leftWinner = leftWalls.Count == 0;
-        print(leftWinner);
+        CameraShake.instance.StopScreenShake();
+        Time.timeScale = 0;
+        endScreen.SetActive(true);
     }
 
     public void SpawnFairy()
     {
-        Instantiate(fairyPrefab, fairySpawnPos.transform.position, Quaternion.identity);
+        faries.Add(Instantiate(fairyPrefab, (Random.Range(0f, 1f) > .5f)? fairySpawnPos1.transform.position: fairySpawnPos2.transform.position, Quaternion.identity));
+    }
+
+    public void ResetGame()
+    {
+        finished = false;
+
+        if (leftWalls.Count > 0)
+            leftWalls.Clear();
+        if (rightWalls.Count > 0)
+            rightWalls.Clear();
+
+        if (blockGenerator.leftWalls.Count > 0)
+            blockGenerator.leftWalls.Clear();
+        if (blockGenerator.rightWalls.Count > 0)
+            blockGenerator.rightWalls.Clear();
+
+        blockGenerator.DestroyChildren(blockGenerator.playerLeftPos.transform);
+        blockGenerator.DestroyChildren(blockGenerator.playerRightPos.transform);
+
+        foreach (GameObject fariy in faries)
+            Destroy(fariy);       
+
+        if (faries.Count > 0)
+            faries.Clear();
+
+        SceneManager.LoadScene(1);
     }
 
     /// <summary>

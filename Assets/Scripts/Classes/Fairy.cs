@@ -9,7 +9,7 @@ public class Fairy : MonoBehaviour
     public NavMeshAgent navAgent;
     public bool captured = false, leftSide = false;
     public ParticleSystem trail;
-
+    public GameObject model;
     public BlockBehavior currBlock;
 
     public void Start()
@@ -33,13 +33,13 @@ public class Fairy : MonoBehaviour
         return false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (currBlock != null && currBlock.currHealth > 0)
         {
             if (Vector3.Distance(transform.position, currBlock.transform.position) < 2)
             {
-                currBlock.currHealth += 0.1f;
+                currBlock.addHealth(.2f);
             }
         }
         else if (currBlock != null && currBlock.currHealth <= 0)
@@ -49,7 +49,7 @@ public class Fairy : MonoBehaviour
     public void CheckForNewBlocks()
     {
         BlockBehavior temp = GameManager.instance.FindWeakestWall(leftSide);
-        if (temp.currHealth <= 0 || temp.currHealth >= 100)
+        if (temp == null || temp.currHealth <= 0 || temp.currHealth >= 100)
         {
             navAgent.destination = new Vector3(leftSide ? -7 : 7, 1, 0);
         }
@@ -67,8 +67,8 @@ public class Fairy : MonoBehaviour
         if (!captured && coll.tag == "Player")
         {
             GameObject player = coll.gameObject;
-            gameObject.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
-            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerMaterial;
+            model.GetComponent<Renderer>().material = player.GetComponent<Player>().playerSkins[0];
+            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerSkins[0];
             captured = true;
             leftSide = player.name == "Player2";
             InvokeRepeating("CheckForNewBlocks", .1f, .5f);
