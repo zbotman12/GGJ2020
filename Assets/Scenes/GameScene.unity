@@ -1069,8 +1069,8 @@ GameObject:
   - component: {fileID: 612957127}
   - component: {fileID: 612957128}
   - component: {fileID: 612957129}
-  - component: {fileID: 612957126}
   - component: {fileID: 612957130}
+  - component: {fileID: 612957126}
   - component: {fileID: 945657836}
   m_Layer: 9
   m_Name: Player1
@@ -1152,6 +1152,8 @@ MonoBehaviour:
   ySpacing: 2
   playerLeftPos: {fileID: 1252481834}
   playerRightPos: {fileID: 864631410}
+  blockPrefab: {fileID: 8182608776250111166, guid: ac76fe14b9f6a3d42b82e54e1865cd7e,
+    type: 3}
   leftWalls: []
   rightWalls: []
 --- !u!4 &960631323
@@ -2323,8 +2325,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1912341975}
   - component: {fileID: 337464161}
-  - component: {fileID: 337464160}
   - component: {fileID: 337464162}
+  - component: {fileID: 337464160}
   - component: {fileID: 337464159}
   - component: {fileID: 337464163}
   - component: {fileID: 1912314360}
