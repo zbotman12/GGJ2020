@@ -33,13 +33,13 @@ public class Fairy : MonoBehaviour
         return false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (currBlock != null && currBlock.currHealth > 0)
         {
             if (Vector3.Distance(transform.position, currBlock.transform.position) < 2)
             {
-                currBlock.currHealth += 0.1f;
+                currBlock.addHealth(.2f);
             }
         }
         else if (currBlock != null && currBlock.currHealth <= 0)

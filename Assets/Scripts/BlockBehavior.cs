@@ -7,6 +7,14 @@ public class BlockBehavior : MonoBehaviour
     public float currHealth;
     public int startHealth, maxHealth;
 
+    private MeshFilter mesh;
+    public Mesh FullHealth, Damaged, Broken;
+
+    public void Start()
+    {
+        mesh = GetComponent<MeshFilter>();
+    }
+
     BlockBehavior()
     {
         currHealth = startHealth = maxHealth = 100;
@@ -33,6 +41,13 @@ public class BlockBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (currHealth > 80)
+            mesh.mesh = FullHealth;
+        else if (currHealth <= 80 && currHealth >= 25)
+            mesh.mesh = Damaged;
+        else
+            mesh.mesh = Broken;
     }
     public void addHealth(float mod)
     {
@@ -47,6 +62,13 @@ public class BlockBehavior : MonoBehaviour
             //Destroy(gameObject);            
             gameObject.SetActive(false);
         }
+
+        if (currHealth > 80)
+            mesh.mesh = FullHealth;
+        else if (currHealth < 75 && currHealth >= 25)
+            mesh.mesh = Damaged;
+        else
+            mesh.mesh = Broken;
     }
 
     public void damage(int mod)
