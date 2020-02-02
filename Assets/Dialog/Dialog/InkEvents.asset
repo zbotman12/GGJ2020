@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a537a22539ea1f4e9c72696ef27962b, type: 3}
+  m_Name: InkEvents
+  m_EditorClassIdentifier: 
+  _events:
+  - {fileID: 11400000, guid: 26911fe78892ea2459f43a6da00dac45, type: 2}
+  - {fileID: 11400000, guid: bdf5de36f7da06c418b38edb427e13c1, type: 2}
+  - {fileID: 11400000, guid: 60c5f46202e214b4089d1187b759152c, type: 2}
+  - {fileID: 11400000, guid: 22176a48aa7c2b444b7c8069f690832b, type: 2}
+  - {fileID: 11400000, guid: dabe1f1352f588d448aca04d223e6220, type: 2}
+  - {fileID: 11400000, guid: 7da2932f2f698654c9b1ac445bb11852, type: 2}
+  - {fileID: 11400000, guid: 1338ef840054cb64fa38dc4b9bf2539d, type: 2}
+  - {fileID: 11400000, guid: e57059c4a19052c4a9debf1b5b4c0c00, type: 2}

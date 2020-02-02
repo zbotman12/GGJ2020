@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340f40d283e447e4ba31345c34a0e09d, type: 3}
+  m_Name: MusicLibrary
+  m_EditorClassIdentifier: 
+  music:
+  - name: recurring daymares
+    clip: {fileID: 8300000, guid: 50e4ee639a9354e47abca9c8d256db5f, type: 3}
+  - name: sadhead
+    clip: {fileID: 8300000, guid: 2d3ac9f1ca56c3d42821013ecd46f95f, type: 3}
+  - name: sneaking banger
+    clip: {fileID: 8300000, guid: a4b263dea6f91c247a1dc95c3a283f39, type: 3}
+  - name: resource humans
+    clip: {fileID: 8300000, guid: 929d84447825a5748af646cdc78b17ea, type: 3}
+  - name: pptheme
+    clip: {fileID: 8300000, guid: aeea9edde782d8147bf58f44ed48cb01, type: 3}
+  - name: man of the suburbs
+    clip: {fileID: 8300000, guid: c54e1e34670534e4d8581de343425557, type: 3}
+  - name: lost in space
+    clip: {fileID: 8300000, guid: 975e9b5040f1b4b428a61921f152eb91, type: 3}
+  - name: none
+    clip: {fileID: 0}
