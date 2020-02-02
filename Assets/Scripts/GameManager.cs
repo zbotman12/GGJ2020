@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    FMOD.Studio.EventInstance MainLevel;
+
     public static GameManager instance;
     public GameObject fairyPrefab;
 
@@ -29,6 +31,10 @@ public class GameManager : MonoBehaviour
     #region SingletonDeclration
     public void Awake()
     {
+
+        MainLevel = FMODUnity.RuntimeManager.CreateInstance("event:/MAIN LEVEL");
+        MainLevel.start();
+
         if (instance == null)
         {
             instance = this;
@@ -99,6 +105,12 @@ public class GameManager : MonoBehaviour
             }
             if (leftWalls.Count == 0 || rightWalls.Count == 0)
                 finished = true;
+
+            if (leftWalls.Count < rightWalls.Count)            
+                MainLevel.setParameterByName("Blocks of Losing Player", leftWalls.Count-1, true);            
+            else
+                MainLevel.setParameterByName("Blocks of Losing Player", rightWalls.Count-1, true);
+
             yield return new WaitForSeconds(.2f);
         }
 
@@ -110,6 +122,8 @@ public class GameManager : MonoBehaviour
         player2.GetComponent<BasicMovement>().enabled = false;
         player1.GetComponent<GrabBall>().enabled = false;
         player2.GetComponent<GrabBall>().enabled = false;
+
+        MainLevel.setParameterByName("Blocks of Losing Player", 4, true);
 
         endScreen.SetActive(true);
     }
