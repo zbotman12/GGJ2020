@@ -29,6 +29,12 @@ public class CameraShake : MonoBehaviour
         timer = 0;
         StartCoroutine(ScreenShake());
     }
+    public void ShakeCamera(float shake)
+    {
+        originalPos = transform.position;
+        timer = 0;
+        StartCoroutine(ScreenShake(shake));
+    }
     public void StopScreenShake()
     {
         timer = shakeTimeAmt+1;
@@ -44,5 +50,15 @@ public class CameraShake : MonoBehaviour
             yield return new WaitForEndOfFrame();
 		}
 			transform.localPosition = originalPos;
+    }
+    private IEnumerator ScreenShake(float shake)
+    {
+        while (timer < shakeTimeAmt)
+        {
+            transform.localPosition = originalPos + Random.insideUnitSphere * shake;
+            timer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        transform.localPosition = originalPos;
     }
 }

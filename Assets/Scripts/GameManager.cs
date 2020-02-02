@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -69,16 +67,6 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<BallSpawner>().SpawnBall(0);
     }
 
-    // Remove me
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            finished = true;
-            leftWinner = true;
-        }
-    }
-
     public IEnumerator SpawnFairies()
     {
         yield return new WaitForSeconds(3);
@@ -124,8 +112,6 @@ public class GameManager : MonoBehaviour
         player2.GetComponent<GrabBall>().enabled = false;
 
         endScreen.SetActive(true);
-
-        //EventSystem.current.SetSelectedGameObject(endScreen.GetComponentInChildren<UnityEngine.UI.Button>().gameObject);
     }
 
     public void SpawnFairy()

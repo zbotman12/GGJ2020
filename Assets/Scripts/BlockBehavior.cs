@@ -76,6 +76,11 @@ public class BlockBehavior : MonoBehaviour
         CameraShake.instance.ShakeCamera();
         addHealth(-1 * mod);
     }
+    public void damage(int mod, float shakeAmt)
+    {
+        CameraShake.instance.ShakeCamera(shakeAmt);
+        addHealth(-1 * mod);
+    }
     public void damage(float mod)
     {
         CameraShake.instance.ShakeCamera();
