@@ -29,6 +29,10 @@ public class GrabBall : MonoBehaviour
             enableBallThrow = false;
         }
     }
+    public void OnTriggerExit(Collider other)
+    {
+        canPickUp = true;
+    }
 
     public void Update()
     {
