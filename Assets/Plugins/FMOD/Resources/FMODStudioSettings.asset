@@ -15,7 +15,7 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 0
   HasPlatforms: 0
-  sourceProjectPath: Assets\FMOD_PROJECT\DODGEBALL - MAIN SEQUENCE\DODGEBALL - MAIN
+  sourceProjectPath: Assets/FMOD_PROJECT/DODGEBALL - MAIN SEQUENCE/DODGEBALL - MAIN
     SEQUENCE.fspro
   sourceBankPath: Assets\FMOD_PROJECT\DODGEBALL - MAIN SEQUENCE\Build\Desktop
   SourceBankPathUnformatted: 
@@ -77,8 +77,7 @@ MonoBehaviour:
   - Platform: 20
     Value: 32
   Plugins: []
-  MasterBanks:
-  - Master
+  MasterBanks: []
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
