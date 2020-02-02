@@ -9,6 +9,7 @@ public class GrabBall : MonoBehaviour
     public GameObject playerHandLocation;
     public GameObject peeShooterPrefab;
     public SphereCollider triggerZone;
+    public bool isLeftSide;
     [SerializeField]
     private Ball ball;
     public bool usedTrigger = false, canPickUp = true;
@@ -61,7 +62,7 @@ public class GrabBall : MonoBehaviour
                 shootable = false;
                 Vector3 spawnPosition = transform.position;
                 spawnPosition.y = 1;
-                GameObject pee = Instantiate(peeShooterPrefab, spawnPosition, Quaternion.identity);
+                GameObject pee = Instantiate(peeShooterPrefab, spawnPosition, Quaternion.Euler(0, isLeftSide? 180: 0, 0));
                 Destroy(pee, 12);
                 pee.GetComponent<Rigidbody>().velocity = playerHandLocation.transform.forward * 8;
                 StartCoroutine(PeeShooterCooldown());
