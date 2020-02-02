@@ -29,7 +29,12 @@ public class CameraShake : MonoBehaviour
         timer = 0;
         StartCoroutine(ScreenShake());
     }
-
+    public void StopScreenShake()
+    {
+        timer = shakeTimeAmt+1;
+        StopCoroutine(ScreenShake());
+        transform.localPosition = originalPos;
+    }
     private IEnumerator ScreenShake()
     {
         while (timer < shakeTimeAmt)

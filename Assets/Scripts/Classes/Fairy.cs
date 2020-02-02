@@ -49,7 +49,7 @@ public class Fairy : MonoBehaviour
     public void CheckForNewBlocks()
     {
         BlockBehavior temp = GameManager.instance.FindWeakestWall(leftSide);
-        if (temp.currHealth <= 0 || temp.currHealth >= 100)
+        if (temp == null || temp.currHealth <= 0 || temp.currHealth >= 100)
         {
             navAgent.destination = new Vector3(leftSide ? -7 : 7, 1, 0);
         }
