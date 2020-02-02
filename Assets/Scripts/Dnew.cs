@@ -5,16 +5,17 @@ using UnityEngine;
 public class Dnew : MonoBehaviour
 {
     static Dnew instance = null;
-    void Start()
+
+    void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(this);
-        }
-        else
+        if (instance == null)
         {
             DontDestroyOnLoad(this);
             instance = this;
+        }
+        else
+        {
+            DestroyImmediate(gameObject);
         }
     }
 

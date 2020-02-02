@@ -12,9 +12,9 @@ public class Fairy : MonoBehaviour
     public GameObject model;
     public BlockBehavior currBlock;
 
-    public void Start()
+    public void SetDestination(Vector3 dest)
     {
-        navAgent.destination = new Vector3(0, 1, 0);
+        navAgent.destination = dest;
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -62,13 +62,20 @@ public class Fairy : MonoBehaviour
         }
     }
 
+    public void SetMaterial(Material mat)
+    {
+        model.GetComponent<Renderer>().material = mat;
+        trail.GetComponent<Renderer>().material = mat;
+
+    }
+
     public void OnTriggerEnter(Collider coll)
     {
         if (!captured && coll.tag == "Player")
         {
-            GameObject player = coll.gameObject;
-            model.GetComponent<Renderer>().material = player.GetComponent<Player>().playerSkins[0];
-            trail.GetComponent<Renderer>().material = player.GetComponent<Player>().playerSkins[0];
+            Player player = coll.gameObject.GetComponent<Player>();
+            player.RegisterFairy(this);
+            SetMaterial(player.PlayerMaterial);
             captured = true;
             leftSide = player.name == "Player2";
             InvokeRepeating("CheckForNewBlocks", .1f, .5f);

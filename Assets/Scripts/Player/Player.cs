@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Material playerMaterial;
+    [SerializeField] private Material playerMaterial;
     public string playerName;
 
     public List<MeshRenderer> meshFilters = new List<MeshRenderer>();
-    [HideInInspector]
-    public List<Material> playerSkins = new List<Material>();
 
     public List<PlayerSkin> skins = new List<PlayerSkin>();
 
@@ -17,12 +15,35 @@ public class Player : MonoBehaviour
     public PlayerSkin currentSkin;
     private int index = 0;
 
+    private Material playerMaterialInstance;
+
+    private List<Fairy> dudes = new List<Fairy>();
+
+    public Material PlayerMaterial => playerMaterialInstance;
     public string buttonName;
+
+    Vector3 startPosition;
+    Quaternion startRotation;
 
     public void Start()
     {
+        startPosition = transform.position;
+        startRotation = transform.rotation;
+        playerMaterialInstance = new Material(playerMaterial);
         foreach (MeshRenderer mf in meshFilters)
-            playerSkins.Add(mf.material);
+            mf.material = playerMaterialInstance;
+    }
+
+    public void RegisterFairy(Fairy f)
+    {
+        dudes.Add(f);
+    }
+
+    public void Reset()
+    {
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     public void LateUpdate()
@@ -40,8 +61,12 @@ public class Player : MonoBehaviour
 
         currentSkin = skins[index];
 
-        foreach (Material skin in playerSkins)
-            skin.mainTexture = currentSkin.skin;
+        playerMaterialInstance.mainTexture = currentSkin.skin;
+
+        foreach(Fairy dude in dudes)
+        {
+            dude.SetMaterial(playerMaterialInstance);
+        }
     }
 }
 [System.Serializable]
