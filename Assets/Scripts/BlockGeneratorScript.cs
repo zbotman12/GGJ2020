@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 [CanEditMultipleObjects]
+#endif
 public class BlockGeneratorScript : MonoBehaviour
 {
     public float xGridSize, yGridSize;
     public float xSpacing, ySpacing;
     public GameObject playerLeftPos, playerRightPos;
     public List<BlockBehavior> leftWalls = new List<BlockBehavior>(), rightWalls = new List<BlockBehavior>();
+    public GameObject blockPrefab;
 
     public void GenerateBlocks()
     {
@@ -30,8 +33,7 @@ public class BlockGeneratorScript : MonoBehaviour
         {
             for (int j = 0; j < yGridSize; j++)
             {
-                Object blockPrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Block.prefab", typeof(GameObject));
-                GameObject block = PrefabUtility.InstantiatePrefab(blockPrefab, parentHolder.transform) as GameObject;
+                GameObject block = Instantiate(blockPrefab, parentHolder.transform) as GameObject;
                 block.transform.position = new Vector3(i * xSpacing + (leftSide? playerLeftPos.transform.position.x: playerRightPos.transform.position.x), 1, j * ySpacing + (leftSide ? playerLeftPos.transform.position.x+6 : -playerRightPos.transform.position.x+4));
                 if (leftSide)
                     leftWalls.Add(block.GetComponent<BlockBehavior>());
