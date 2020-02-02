@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject fairyPrefab;
-    public GameObject fairySpawnPos;
+    public GameObject fairySpawnPos1, fairySpawnPos2;
     public GameObject endScreen;
 
     public List<GameObject> faries = new List<GameObject>();
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnFairy()
     {
-        faries.Add(Instantiate(fairyPrefab, fairySpawnPos.transform.position, Quaternion.identity));
+        faries.Add(Instantiate(fairyPrefab, (Random.Range(0f, 1f) > .5f)? fairySpawnPos1.transform.position: fairySpawnPos2.transform.position, Quaternion.identity));
     }
 
     public void ResetGame()
