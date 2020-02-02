@@ -79,7 +79,7 @@ public class Ball : MonoBehaviour
         // We hit a target
         if (hit.transform.tag == "Wall")
         {
-            hit.transform.gameObject.GetComponent<BlockBehavior>().damage(rb.velocity.magnitude * 7 * scale);
+            hit.transform.gameObject.GetComponent<BlockBehavior>().damage(rb.velocity.magnitude * scale);
             float speed = rb.velocity.magnitude;
             var dir = Vector3.Reflect(rb.velocity.normalized, hit.normal);
             rb.velocity = dir * (speed/1.3f);

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{526a6c96-c09d-4ef0-a3b3-0521115bca24}">
+		<property name="name">
+			<value>Total Block Health Percentage of Losing Player</value>
+		</property>
+		<relationship name="folder">
+			<destination>{07e3bd2d-ac77-4827-9255-8341dd61aace}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c4144462-6eab-46db-a895-5206c07fa8a8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c4144462-6eab-46db-a895-5206c07fa8a8}">
+		<property name="maximum">
+			<value>100</value>
+		</property>
+		<property name="initialValue">
+			<value>100</value>
+		</property>
+	</object>
+</objects>

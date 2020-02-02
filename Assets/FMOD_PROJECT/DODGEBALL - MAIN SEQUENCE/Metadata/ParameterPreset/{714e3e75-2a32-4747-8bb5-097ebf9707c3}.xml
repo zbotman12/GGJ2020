@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{714e3e75-2a32-4747-8bb5-097ebf9707c3}">
+		<property name="name">
+			<value>Blocks of Losing Player</value>
+		</property>
+		<relationship name="folder">
+			<destination>{07e3bd2d-ac77-4827-9255-8341dd61aace}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{06a94edd-0fb3-4dc8-a334-7422dc97a5f7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{06a94edd-0fb3-4dc8-a334-7422dc97a5f7}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="initialValue">
+			<value>4</value>
+		</property>
+	</object>
+</objects>

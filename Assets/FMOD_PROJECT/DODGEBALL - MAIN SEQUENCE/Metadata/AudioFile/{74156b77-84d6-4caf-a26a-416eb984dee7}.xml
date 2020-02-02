@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{74156b77-84d6-4caf-a26a-416eb984dee7}">
+		<property name="assetPath">
+			<value>DODGEBALL - LOOPS 1 2 3 - STRINGS.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>203.61600000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{502c1452-165f-4213-809e-bac653c6bf5a}</destination>
+		</relationship>
+	</object>
+</objects>

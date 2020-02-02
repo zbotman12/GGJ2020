@@ -10,4 +10,9 @@ public class EndScreen : MonoBehaviour
     {
         winningText.text = (GameManager.instance.leftWinner ? "Player2" : "Player1") + " Wins!";
     }
+
+    public void Back()
+    {
+        GameManager.instance.ResetGame();
+    }
 }

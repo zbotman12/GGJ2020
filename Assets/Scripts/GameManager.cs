@@ -8,16 +8,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject fairyPrefab;
-    public GameObject fairySpawnPos1, fairySpawnPos2;
-    public GameObject endScreen;
+
+    private GameObject CharacterParent;
+
+    private GameObject endScreen;
+    private GameObject mainMenu;
+
 
     public List<GameObject> faries = new List<GameObject>();
-
-    public BlockGeneratorScript blockGenerator;
 
     public bool finished = false;
     public bool leftWinner;
 
+
+    private Coroutine spawnFairyRoutine;
     public bool TestingMode;
 
     [Tooltip("The players walls list that will store all of the data for the walls")]
@@ -30,6 +34,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            endScreen = GameObject.FindObjectOfType<EndScreen>().gameObject;
+            endScreen.SetActive(false);
+            mainMenu = GameObject.FindObjectOfType<MainMenu>().gameObject;
+            mainMenu.SetActive(true);
+            CharacterParent = GameObject.FindObjectOfType<AudioChorusFilter>().gameObject;
         }
         else if (instance != this)
             Destroy(gameObject);        
@@ -38,8 +47,12 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        InvokeRepeating("SpawnFairy", 3, 15);                 
-        blockGenerator.GenerateBlocks();
+        if(CharacterParent == null) CharacterParent = GameObject.FindObjectOfType<AudioChorusFilter>().gameObject;
+        if(endScreen == null) endScreen = GameObject.FindObjectOfType<EndScreen>().gameObject;
+        if(mainMenu == null) mainMenu = GameObject.FindObjectOfType<MainMenu>().gameObject;
+        endScreen.SetActive(false);
+        spawnFairyRoutine = StartCoroutine(SpawnFairies());
+        FindObjectOfType<BlockGeneratorScript>().GenerateBlocks();
         StartCoroutine(WinChecker());
         FindObjectOfType<BallSpawner>().SpawnBall(0);
         foreach(BasicMovement bm in FindObjectsOfType<BasicMovement>())
@@ -51,13 +64,26 @@ public class GameManager : MonoBehaviour
         {
             bm.enabled = true;
         }
+
+        FindObjectOfType<BallSpawner>().SpawnBall(0);
+    }
+
+    public IEnumerator SpawnFairies()
+    {
+        yield return new WaitForSeconds(3);
+        while (true)
+        {
+            SpawnFairy();
+            yield return new WaitForSeconds(15);
+        }
+
     }
 
     public IEnumerator WinChecker()
     {
         yield return new WaitForSeconds(3);
-        leftWalls = new List<BlockBehavior>(blockGenerator.leftWalls);
-        rightWalls = new List<BlockBehavior>(blockGenerator.rightWalls);
+        leftWalls = new List<BlockBehavior>(FindObjectOfType<BlockGeneratorScript>().leftWalls);
+        rightWalls = new List<BlockBehavior>(FindObjectOfType<BlockGeneratorScript>().rightWalls);
         yield return new WaitForSeconds(3);
 
         while (!finished)
@@ -96,26 +122,33 @@ public class GameManager : MonoBehaviour
     public void SpawnFairy()
     {
         bool odds = Random.Range(0f, 1f) > .5f;
-        faries.Add(Instantiate(fairyPrefab, (odds) ? fairySpawnPos1.transform.position: fairySpawnPos2.transform.position, Quaternion.identity));
+        faries.Add(Instantiate(fairyPrefab, (odds) ? GameObject.Find("FairySpawnPos1").transform.position : GameObject.Find("FairySpawnPos2").transform.position, Quaternion.identity));
         faries[faries.Count - 1].GetComponent<Fairy>().SetDestination((odds )? new Vector3(0,1,2f) : new Vector3(0, 1, -2f));
     }
 
     public void ResetGame()
     {
+        FindObjectOfType<BallSpawner>().StopAllCoroutines();
         finished = false;
-
+        endScreen.SetActive(false);
+        mainMenu.SetActive(true);
         if (leftWalls.Count > 0)
             leftWalls.Clear();
         if (rightWalls.Count > 0)
             rightWalls.Clear();
 
-        if (blockGenerator.leftWalls.Count > 0)
-            blockGenerator.leftWalls.Clear();
-        if (blockGenerator.rightWalls.Count > 0)
-            blockGenerator.rightWalls.Clear();
+        if (FindObjectOfType<BlockGeneratorScript>().leftWalls.Count > 0)
+            FindObjectOfType<BlockGeneratorScript>().leftWalls.Clear();
+        if (FindObjectOfType<BlockGeneratorScript>().rightWalls.Count > 0)
+            FindObjectOfType<BlockGeneratorScript>().rightWalls.Clear();
 
-        blockGenerator.DestroyChildren(blockGenerator.playerLeftPos.transform);
-        blockGenerator.DestroyChildren(blockGenerator.playerRightPos.transform);
+        FindObjectOfType<BlockGeneratorScript>().DestroyChildren(FindObjectOfType<BlockGeneratorScript>().playerLeftPos.transform);
+        FindObjectOfType<BlockGeneratorScript>().DestroyChildren(FindObjectOfType<BlockGeneratorScript>().playerRightPos.transform);
+        CharacterParent.SetActive(true);
+        CharacterParent.GetComponentsInChildren<SpriteRenderer>()[1].enabled = false;
+        CharacterParent.GetComponentsInChildren<SpriteRenderer>()[2].enabled = false;
+
+        StopCoroutine(spawnFairyRoutine);
 
         foreach (GameObject fariy in faries)
             Destroy(fariy);       
@@ -128,11 +161,12 @@ public class GameManager : MonoBehaviour
             p.Reset();
         }
 
+        System.Array.ForEach(FindObjectsOfType<BlockBehavior>(), x => Destroy(x.gameObject));
         System.Array.ForEach(FindObjectsOfType<PeeShooterCollision>(), x => Destroy(x.gameObject));
         System.Array.ForEach(FindObjectsOfType<Ball>(), x => Destroy(x.gameObject));
         System.Array.ForEach(FindObjectsOfType<Explosion>(), x => Destroy(x.gameObject));
 
-        FindObjectOfType<BallSpawner>().SpawnBall(0);
+        //endScreen.GetComponent<LoadNextScene>().LoadScene();
     }
 
     /// <summary>

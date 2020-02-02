@@ -5,6 +5,8 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     [SerializeField] public GameObject ballPrefab;
+
+    GameObject SpawnedBall;
     public void SpawnBall(float delay)
     {
         StartCoroutine(spawnBall(delay));
@@ -13,6 +15,7 @@ public class BallSpawner : MonoBehaviour
     IEnumerator spawnBall(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Instantiate(ballPrefab, transform.position, Quaternion.identity);
+        Destroy(SpawnedBall);
+        SpawnedBall = Instantiate(ballPrefab, transform.position, Quaternion.identity);
     }
 }
