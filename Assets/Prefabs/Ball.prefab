@@ -141,6 +141,6 @@ MonoBehaviour:
     m_Bits: 12804
   scale: 0
   growRate: 0.005
-  maxScale: 3
+  maxScale: 6
   ExplosionPrefab: {fileID: 4856780376599797738, guid: 1b002ce38c3d7244892703cf17fdde56,
     type: 3}

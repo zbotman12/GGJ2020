@@ -9,10 +9,14 @@ public class Ball : MonoBehaviour
     public float scale, growRate = .0005f;
     public float maxScale;
     public GameObject ExplosionPrefab;
+    Material mat;
+
     public void Start()
     {
+        mat = GetComponent<Renderer>().material;
         collisionLayer = ~collisionLayer;
         scale = gameObject.transform.localScale.x;
+        StartCoroutine(blinkred());
     }
     public void FixedUpdate()
     {
@@ -22,12 +26,40 @@ public class Ball : MonoBehaviour
             Collision(hit);
         }
 
-        transform.localScale += new Vector3(growRate, growRate, growRate);
-        scale = transform.localScale.x;
-        if(scale >= maxScale)
+        //transform.localScale += new Vector3(growRate, growRate, growRate);
+        scale += growRate;
+
+        if (scale >= maxScale)
         {
             Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+    }
+
+    IEnumerator blinkred()
+    {
+        while (scale < maxScale)
+        {
+            float duration = (maxScale - scale) / 3;
+            float timer = 0;
+            while (timer < duration)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+                mat.SetColor("_Color", Color.Lerp(Color.white,Color.red, timer/duration));
+                transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.2f, timer/duration);
+            }
+            float duration2 = duration/10;
+            float timer2 = 0;
+            while (timer2 < duration2)
+            {
+                timer2 += Time.deltaTime;
+                yield return null;
+                mat.SetColor("_Color", Color.Lerp(Color.red, Color.white, timer2 / duration2));
+                transform.localScale = Vector3.Lerp(Vector3.one * 1.2f, Vector3.one , timer2 / duration2);
+            }
+            transform.localScale = Vector3.one;
+            mat.SetColor("_Color", Color.white);
         }
     }
     // Since the raycast wont run on angled hits
