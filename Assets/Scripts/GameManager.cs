@@ -38,9 +38,18 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         InvokeRepeating("SpawnFairy", 3, 15);                 
-        Time.timeScale = 1;
         blockGenerator.GenerateBlocks();
         StartCoroutine(WinChecker());
+        FindObjectOfType<BallSpawner>().SpawnBall(0);
+        foreach(BasicMovement bm in FindObjectsOfType<BasicMovement>())
+        {
+            bm.enabled = true;
+        }
+
+        foreach (GrabBall bm in FindObjectsOfType<GrabBall>())
+        {
+            bm.enabled = true;
+        }
     }
 
     public IEnumerator WinChecker()
@@ -69,13 +78,14 @@ public class GameManager : MonoBehaviour
         // Game Over
         leftWinner = leftWalls.Count == 0;
         CameraShake.instance.StopScreenShake();
-        Time.timeScale = 0;
         endScreen.SetActive(true);
     }
 
     public void SpawnFairy()
     {
-        faries.Add(Instantiate(fairyPrefab, (Random.Range(0f, 1f) > .5f)? fairySpawnPos1.transform.position: fairySpawnPos2.transform.position, Quaternion.identity));
+        bool odds = Random.Range(0f, 1f) > .5f;
+        faries.Add(Instantiate(fairyPrefab, (odds) ? fairySpawnPos1.transform.position: fairySpawnPos2.transform.position, Quaternion.identity));
+        faries[faries.Count - 1].GetComponent<Fairy>().SetDestination((odds )? new Vector3(0,1,2f) : new Vector3(0, 1, -2f));
     }
 
     public void ResetGame()
@@ -100,6 +110,17 @@ public class GameManager : MonoBehaviour
 
         if (faries.Count > 0)
             faries.Clear();
+
+        foreach(Player p in FindObjectsOfType<Player>())
+        {
+            p.Reset();
+        }
+
+        System.Array.ForEach(FindObjectsOfType<PeeShooterCollision>(), x => Destroy(x.gameObject));
+        System.Array.ForEach(FindObjectsOfType<Ball>(), x => Destroy(x.gameObject));
+        System.Array.ForEach(FindObjectsOfType<Explosion>(), x => Destroy(x.gameObject));
+
+        FindObjectOfType<BallSpawner>().SpawnBall(0);
     }
 
     /// <summary>

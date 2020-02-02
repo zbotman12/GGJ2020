@@ -41,6 +41,16 @@ public class DialogBox : MonoBehaviour
         }
     }
 
+    public bool isTyping()
+    {
+        return _typer.IsTyping;
+    }
+
+    public void Finish()
+    {
+        _typer.Skip();
+    }
+
     public void DisplayLine(DialogLine storyLine)
     {
         if (nameText != null) nameText.text = storyLine.character;

@@ -7,7 +7,7 @@ public class LoadNextScene : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 }

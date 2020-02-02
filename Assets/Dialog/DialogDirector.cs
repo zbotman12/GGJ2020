@@ -207,11 +207,19 @@ public class DialogDirector : MonoBehaviour
             if (dbox.isDefault) selectedDialogBox = dbox;
         }
 
+    }
+
+    bool doNothing = true;
+    public void StartStory()
+    {
+        selectedDialogBox.SetActiveState(true);
+        doNothing = false;
         Continue();
     }
 
     private void Update()
     {
+        if (doNothing) return;
         timer -= Time.deltaTime;
         waitToContinueTimer -= Time.deltaTime;
 
@@ -225,8 +233,15 @@ public class DialogDirector : MonoBehaviour
         {
             if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("InteractButton2") || Input.GetMouseButtonDown(0))
             {
-                timer = nextContinueTime;
-                Continue();
+                if (selectedDialogBox.isTyping())
+                {
+                    selectedDialogBox.Finish();
+                }
+                else
+                {
+                    timer = nextContinueTime;
+                    Continue();
+                }
             }
         }
     }
