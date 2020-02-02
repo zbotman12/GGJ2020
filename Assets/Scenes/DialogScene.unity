@@ -1177,7 +1177,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c4f2a30494b95c4faf3926f6a0e185d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1287,7 +1287,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 35c86a1572582b54f8a9965c745ac7f8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1383,7 +1383,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 562ffaf993d230644866d10c6ec2b519, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1479,7 +1479,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 25bf022a97837b741ad0ddcc0ad350ff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2791,7 +2791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931497ebf4078f548808bbdc0142383f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  printSoundEffect: {fileID: 8300000, guid: 7e69494c827175242b4c3048ea78a0c7, type: 3}
+  printSoundEffect: {fileID: 8300000, guid: f8f4f69e74c4f49488e54c721441f32e, type: 3}
   nameText: {fileID: 1842312790564826348}
   keepText: 0
   isDefault: 1
