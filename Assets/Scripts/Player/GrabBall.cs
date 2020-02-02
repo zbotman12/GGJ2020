@@ -13,6 +13,7 @@ public class GrabBall : MonoBehaviour
     private Ball ball;
     public bool usedTrigger = false, canPickUp = true;
     bool enableBallThrow = false, shootable = true;
+    public Animator ThrowController;
     public void OnTriggerStay(Collider coll)
     {
         if (Input.GetAxis(buttonName) > 0)
@@ -56,6 +57,7 @@ public class GrabBall : MonoBehaviour
             // No Ball in hand
             if ((Input.GetAxis(buttonName) > 0 || Input.GetButton(buttonNameAlt)) && shootable && triggerZone.enabled)
             {
+                ThrowController.SetTrigger("Throw");
                 shootable = false;
                 Vector3 spawnPosition = transform.position;
                 spawnPosition.y = 1;

@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public Material playerMaterial;
     public string playerName;
 
+    public List<MeshRenderer> meshFilters = new List<MeshRenderer>();
+    [HideInInspector]
     public List<Material> playerSkins = new List<Material>();
 
     public List<PlayerSkin> skins = new List<PlayerSkin>();
@@ -19,8 +21,8 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        foreach (Transform child in transform.GetChild(1).transform)
-            playerSkins.Add(child.GetComponent<MeshRenderer>().material);
+        foreach (MeshRenderer mf in meshFilters)
+            playerSkins.Add(mf.material);
     }
 
     public void LateUpdate()
