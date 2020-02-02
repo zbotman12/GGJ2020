@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private GameObject endScreen;
     private GameObject mainMenu;
 
+    public GameObject player1, player2;
 
     public List<GameObject> faries = new List<GameObject>();
 
@@ -68,6 +69,16 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<BallSpawner>().SpawnBall(0);
     }
 
+    // Remove me
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            finished = true;
+            leftWinner = true;
+        }
+    }
+
     public IEnumerator SpawnFairies()
     {
         yield return new WaitForSeconds(3);
@@ -106,17 +117,15 @@ public class GameManager : MonoBehaviour
         // Game Over
         leftWinner = leftWalls.Count == 0;
         CameraShake.instance.StopScreenShake();
-        foreach (BasicMovement bm in FindObjectsOfType<BasicMovement>())
-        {
-            bm.enabled = false;
-        }
 
-        foreach (GrabBall bm in FindObjectsOfType<GrabBall>())
-        {
-            bm.enabled = false;
-        }
+        player1.GetComponent<BasicMovement>().enabled = false;
+        player2.GetComponent<BasicMovement>().enabled = false;
+        player1.GetComponent<GrabBall>().enabled = false;
+        player2.GetComponent<GrabBall>().enabled = false;
+
         endScreen.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(endScreen.GetComponentInChildren<UnityEngine.UI.Button>().gameObject);
+
+        //EventSystem.current.SetSelectedGameObject(endScreen.GetComponentInChildren<UnityEngine.UI.Button>().gameObject);
     }
 
     public void SpawnFairy()

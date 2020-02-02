@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
-{
+{    
     public void Awake()
     {
-        foreach (BasicMovement bm in FindObjectsOfType<BasicMovement>())
-        {
-            bm.enabled = false;
-        }
-        foreach (GrabBall bm in FindObjectsOfType<GrabBall>())
-        {
-            bm.enabled = false;
-        }
+        FinishGame();
+    }
+    public void FinishGame()
+    {
+        GameManager.instance.player1.GetComponent<BasicMovement>().enabled = false;
+        GameManager.instance.player2.GetComponent<BasicMovement>().enabled = false;
+        GameManager.instance.player1.GetComponent<GrabBall>().enabled = false;
+        GameManager.instance.player2.GetComponent<GrabBall>().enabled = false;
+
+        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
     }
     public void StartGame()
     {

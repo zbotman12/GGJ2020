@@ -24,7 +24,10 @@ public class PeeShooterCollision : MonoBehaviour
                 break;
             case "Wall":
                 coll.gameObject.GetComponent<BlockBehavior>().damage(10);                
-                break;            
+                break;
+            case "Ball":
+                coll.gameObject.GetComponent<Ball>().scale += 1f;
+            break;
         }
         Destroy(gameObject);
     }

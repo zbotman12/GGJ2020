@@ -97,8 +97,8 @@ public class Ball : MonoBehaviour
     }
     public void OnTriggerEnter(Collider coll)
     {
-        if (coll.tag == "Pee")
-            Destroy(coll.gameObject);
+        //if (coll.tag == "Pee")
+        //    Destroy(coll.gameObject);
     }
     public IEnumerator TurnOnCollider()
     {

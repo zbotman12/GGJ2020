@@ -9,7 +9,7 @@ public class Fairy : MonoBehaviour
     public NavMeshAgent navAgent;
     public bool captured = false, leftSide = false;
     public ParticleSystem trail;
-    public GameObject model;
+    public List<GameObject> models = new List<GameObject>();
     public BlockBehavior currBlock;
 
     public void SetDestination(Vector3 dest)
@@ -64,9 +64,11 @@ public class Fairy : MonoBehaviour
 
     public void SetMaterial(Material mat)
     {
-        model.GetComponent<Renderer>().material = mat;
-        trail.GetComponent<Renderer>().material = mat;
+        foreach (GameObject model in models)
+            model.GetComponent<Renderer>().material = mat;
 
+        trail.GetComponent<Renderer>().material = mat;
+        trail.GetComponent<Renderer>().material.color = mat.color;
     }
 
     public void OnTriggerEnter(Collider coll)
