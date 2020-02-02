@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bc6d8609f641f54eaef35adbe090f5a
+guid: f0d2db07f557808479e91ef944c602d0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: Foliage
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Foliage (3)
+    4300000: Foliage (2)
   externalObjects:
   - first:
       type: UnityEngine:Material

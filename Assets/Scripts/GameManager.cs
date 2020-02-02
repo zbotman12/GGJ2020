@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         leftWalls = new List<BlockBehavior>(blockGenerator.leftWalls);
         rightWalls = new List<BlockBehavior>(blockGenerator.rightWalls);
         yield return new WaitForSeconds(3);
+
         while (!finished)
         {
             for (int i = leftWalls.Count - 1; i >= 0; i--)

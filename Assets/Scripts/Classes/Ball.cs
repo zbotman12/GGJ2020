@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
         if (coll.transform.tag == "Wall")
         {
             if (rb.velocity.magnitude > 4)
-                coll.transform.gameObject.GetComponent<BlockBehavior>().damage(33f);
+                coll.transform.gameObject.GetComponent<BlockBehavior>().damage(20f);
             float speed = rb.velocity.magnitude;
             var dir = rb.velocity;
             rb.velocity = -dir.normalized * (speed / 1.3f);
