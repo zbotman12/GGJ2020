@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 0
-  HasPlatforms: 0
+  HasSourceProject: 1
+  HasPlatforms: 1
   sourceProjectPath: Assets/FMOD_PROJECT/DODGEBALL - MAIN SEQUENCE/DODGEBALL - MAIN
     SEQUENCE.fspro
-  sourceBankPath: Assets\FMOD_PROJECT\DODGEBALL - MAIN SEQUENCE\Build\Desktop
+  sourceBankPath: Assets\FMOD_PROJECT\DODGEBALL - MAIN SEQUENCE\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
